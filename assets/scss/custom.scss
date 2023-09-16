@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap');
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+$primary: #083d7f;
+$secondary: #fdb700;
+
+input[class] {
+    box-shadow: none;
+    padding: 1.3rem 1rem;
+}
+
+select {
+    box-shadow: none;
+    padding: 1.3rem 1rem;
+    height: 3.5em;
+}
+
+button.button[class] {
+    padding: 1.3rem;
+    padding-left: calc(1.3em + 0.25em);
+    padding-right: calc(1.3em + 0.25em);
+    
+}
+
+.bg {
+    background-color: #f9f9f9;
+}
+
+.space {
+    padding: 1.5rem;
+}
+
+.cover-1 {
+   border-radius: 2.5rem;
+}
+  
+.cover-2 {
+    border-radius: 1.5rem;
+}
+
+.cover-3 {
+    border-radius: 1rem;
+}
+
+
+// main styles
+.main-form {
+    max-width: 480px;
+    margin:auto
+}
+
+.main-text {
+    font-size: 0.8rem;
+}
+
+.is-1 {
+    font-weight: 700 !important;
+}
+
+.is-2 {
+    font-weight: 700 !important;
+}
+
+.main-form button[type] {
+    height: 3rem;
+}
+
+.field:not(:last-child) {
+    margin-bottom: 0.9rem !important;
+}
+
+// .main-form .control.has-icons-right .icon {
+//     height: 3rem !important;
+    
+// }
+
+.has-text-primary {
+    color: #083d7f !important;
+}
+
+.bg-main{
+    background: #083d7f !important;
+    color: #f9f9f9 !important;
+    padding: 2rem;
+}

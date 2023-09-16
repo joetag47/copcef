@@ -1,0 +1,33 @@
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+
+// primary
+$main: #083d7f;
+$light: #3a88e8;
+$primary: $main;
+$secondary:  #fdb700;
+
+$colors: mergeColorMaps(
+    (
+        "main": (
+            $main,
+            $white
+        ),
+        "secondary": (
+            $secondary,
+            $white
+        )
+    ),
+    $custom-colors
+);
+
+// Links
+$link: #083d7f;
+
+// nav bar
+$navbar-item-hover-color: $main;
+$navbar-dropdown-arrow: $main;
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
