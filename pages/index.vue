@@ -17,10 +17,10 @@
         <span @click="$router.push('payments')" style="float:right"> <b-icon type="is-secondary" size="is-medium" icon="wallet-outline"></b-icon> </span>
       </div>
       
-      <h3 class="title is-3">Hello <nuxt-link to="profile"> User</nuxt-link>, </h3>
+      <h3 class="title is-3">Hello <nuxt-link to="profile"> {{ user.firstname }}</nuxt-link>, </h3>
       <p class="subtitle is-7 has-text-weight-medium">WELCOME TO COPCEF DONATION PLATFORM</p>
     </div>
-    <div class="columns is-multiline">
+    <div class="columns is-multiline" @click="$router.push({ name: 'payments', params: { date: new Date().toISOString().substring(0,10) } })">
       <div class="column is-full card ">
         <div class="card-body p-3 columns is-mobile">
           <div class="column is-two-thirds">
@@ -34,7 +34,7 @@
           
         </div>
       </div>
-      <div class="column is-full card">
+      <div class="column is-full card" @click="$router.push({ name: 'payments', params: { date: new Date().getFullYear() } })">
         <div class="card-body p-3 columns is-mobile">
           
           <div class="column is-two-thirds">
@@ -47,7 +47,7 @@
           </div>
         </div>
       </div>
-      <div class="column is-full card ">
+      <div class="column is-full card "  @click="$router.push({ name: 'payments', params: { date: new Date().toISOString().substring(0, 7) } })">
         <div class="card-body p-3 columns is-mobile">
           <div class="column is-two-thirds">
             <h2 class="title is-4"> Month's</h2>
@@ -93,13 +93,17 @@ export default {
               month: 0,
               day: 0,
               year: 0,
+              user: { firstname: 'User' },
         }
   },
   components: {
     // HeartIcon, ClockIcon, AnchorIcon
   },
-  async fetch() {
-    
+  fetch() {
+
+    let user = this.$auth.user
+    //
+    this.user = user
   },
   mounted() {
     this.getData()

@@ -2,7 +2,7 @@
     <section class="section main-form " >
         <div class=" px-4 pb-5 mb-3" >
             <div style="float:right" class="is-justify-content-center mt-3">
-                <span @click="$router.push('/')" style="float:right"> <b-icon type="is-secondary" size="is-medium" icon="home-outline"></b-icon> </span>
+                <span @click="$router.push('/')" style="float:right"> <b-icon type="is-main" size="is-medium" icon="home-outline"></b-icon> </span>
             </div>
             
             <h3 class="title is-3">Donate here</h3>

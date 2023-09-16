@@ -2,7 +2,7 @@
     <section class="section main-form pay ">
         <div class=" px-4 pb-5 mb-3" >
             <div style="float:right" class="is-justify-content-center mt-3">
-                <span @click="$router.push('/')" style="float:right"> <b-icon type="is-secondary" size="is-medium" icon="home-outline"></b-icon> </span>
+                <span @click="$router.push('/')" style="float:right"> <b-icon type="is-main" size="is-medium" icon="home-outline"></b-icon> </span>
             </div>
             
             <h3 class="title is-3">My Payments <b-tag v-if="data.length > 0 " type="is-main">{{ data.length }}</b-tag></h3>
@@ -79,11 +79,11 @@
                 loading: false,
                 search: '',
                 data: [
-                    { 'id': 1, 'note': 'Pledge', 'mode': 'Mobile Money', 'date': '2022-10-15 13:43:27', 'amount': 50.00 },
-                    { 'id': 2, 'note': '', 'mode': 'Bank', 'date': '2022-12-15 06:00:53', 'amount': 75.00 },
-                    { 'id': 3, 'note': '', 'mode': 'Bank', 'date': '2023-04-26 06:26:28', 'amount': 30.00 },
-                    { 'id': 4, 'note': 'Pledge', 'mode': 'Bank', 'date': '2023-04-10 10:28:46', 'amount': 10.00 },
-                    { 'id': 5, 'note': '', 'mode': 'Mobile Money', 'date': '2022-12-06 14:38:38', 'amount': 5.00 }
+                    // { 'id': 1, 'note': 'Pledge', 'mode': 'Mobile Money', 'date': '2022-10-15 13:43:27', 'amount': 50.00 },
+                    // { 'id': 2, 'note': '', 'mode': 'Bank', 'date': '2022-12-15 06:00:53', 'amount': 75.00 },
+                    // { 'id': 3, 'note': '', 'mode': 'Bank', 'date': '2023-04-26 06:26:28', 'amount': 30.00 },
+                    // { 'id': 4, 'note': 'Pledge', 'mode': 'Bank', 'date': '2023-04-10 10:28:46', 'amount': 10.00 },
+                    // { 'id': 5, 'note': '', 'mode': 'Mobile Money', 'date': '2022-12-06 14:38:38', 'amount': 5.00 }
                 ],
                 result: [],
                 columns: [
@@ -106,8 +106,27 @@
                 ]
             }
         },
+        watch: {
+            search() {
+                if (this.$route.params.date) {
+                    setTimeout(()=>{
+                        this.onSearch()
+                    },500)
+                    
+
+                    console.log('changed '+this.search)
+                }
+            }
+        },
         mounted() {
             this.getData()
+
+            console.log(this.$route)
+
+            if (this.$route.params.date) {
+                // this.onFetch()
+                this.search = this.$route.params.date
+            }
         },
         methods: {
             formatAMPM(date) {
@@ -126,7 +145,7 @@
                 if (this.search.length >= 0) {
                     
                    
-                    const res = this.data.filter(({ note, amount, mode, date }) => note.toLowerCase().includes(this.search.toLowerCase()) || amount == this.search || mode.toLowerCase().includes(this.search.toLowerCase()) || date.toLowerCase().includes(this.search.toLowerCase()) )
+                    const res = this.data.filter(({ note, amount, paymentMode, date }) => note.toLowerCase().includes(this.search.toLowerCase()) || amount == this.search || paymentMode.toLowerCase().includes(this.search.toLowerCase()) || date.toLowerCase().includes(this.search.toLowerCase()) )
                     this.result = res
                     
                 }
@@ -143,7 +162,7 @@
             getData() {
                 this.$axios.$get('/user/pay')
                                     .then((res) =>  {
-                                        console.log(res)
+                                        // console.log(res)
                                         //
                                         if (res) {
                                             
