@@ -103,13 +103,12 @@ export default {
   },
   mounted() {
 
-    const data = this.$route.params
+    if (this.$route.params.email) {
 
-    // if (Object.keys(data).length !== 0) {
-    //     if (this.$route.params.email) {
-    //         this.login.email = data.email
-    //     }
-    // }
+        this.login.email = this.$route.params.email
+    
+    }
+
     if (this.$auth.loggedIn) {
             //
             this.$router.push('/')

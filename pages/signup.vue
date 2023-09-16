@@ -356,7 +356,7 @@
                                       
                                       setTimeout(() => {
   
-                                          this.$router.push('/login', { params: res.data })
+                                          this.$router.push({ name:'login', params: { email: res.data.email } })
   
                                       }, 3000)
 
